@@ -51,8 +51,8 @@ const mapsEmbedUrl =
     </div>
   </header>
 
-  <main class="pb-8">
-    <section class="section-shell grid gap-10 pt-14 md:grid-cols-2 md:items-center">
+  <main class="pb-14">
+    <section class="section-shell grid gap-10 pt-20 md:grid-cols-2 md:items-center">
       <div class="space-y-6">
         <p class="pill">OSMI Barberstudio</p>
         <h1 class="font-display text-5xl leading-tight text-osmi-100 md:text-7xl">
@@ -93,7 +93,7 @@ const mapsEmbedUrl =
       </div>
     </section>
 
-    <section class="section-shell pt-4">
+    <section class="section-shell pt-20">
       <div class="mb-7 flex flex-col gap-2">
         <p class="pill w-fit">Servicios</p>
         <h2 class="font-display text-3xl text-osmi-100 md:text-5xl">Servicios destacados</h2>
@@ -120,14 +120,12 @@ const mapsEmbedUrl =
       </div>
     </section>
 
-    <section id="ubicacion" class="section-shell pt-20">
+    <section id="ubicacion" class="section-shell pt-28">
       <div class="grid gap-6 lg:grid-cols-[0.45fr_1fr]">
         <div class="glass-card p-6 md:p-8">
           <p class="pill w-fit">Ubicacion</p>
           <h2 class="mt-4 font-display text-3xl text-osmi-100 md:text-4xl">Encuentranos en Google Maps</h2>
-          <p class="mt-3 text-sm text-osmi-300 md:text-base">
-            Configura `PUBLIC_GOOGLE_MAPS_LINK` para el boton y `PUBLIC_GOOGLE_MAPS_EMBED_URL` para el iframe.
-          </p>
+          
           <a
             href={mapsLink}
             target="_blank"
