@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "OSMI Barberstudio | Reservas",
+  description = "Reserva tu cita en OSMI Barberstudio en segundos."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/brand/osmi-logo.png" />
+    <link rel="icon" type="image/png" href="/brand/osmi-logo.png" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-osmi-900 text-osmi-100 antialiased">
+    <slot />
+  </body>
+</html>

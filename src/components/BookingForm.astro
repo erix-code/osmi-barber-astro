@@ -1,0 +1,143 @@
+---
+const services = [
+  "Corte clásico",
+  "Fade premium",
+  "Barba + perfilado",
+  "Corte + barba",
+  "Arreglo express"
+];
+---
+
+<section id="reservar" class="mx-auto max-w-5xl px-4 pb-20">
+  <div class="rounded-3xl border border-osmi-700 bg-osmi-800/70 p-6 shadow-xl shadow-black/20 md:p-8">
+    <h2 class="font-display text-3xl tracking-wide text-osmi-100 md:text-4xl">Reserva tu cita</h2>
+    <p class="mt-2 text-sm text-osmi-300 md:text-base">
+      Completa el formulario y te confirmamos en minutos.
+    </p>
+
+    <form id="booking-form" class="mt-8 grid gap-4 md:grid-cols-2">
+      <label class="field">
+        <span>Nombre completo *</span>
+        <input name="name" type="text" minlength="3" required placeholder="Ej: Erick Salinas" />
+      </label>
+
+      <label class="field">
+        <span>Teléfono (WhatsApp) *</span>
+        <input
+          name="phone"
+          type="tel"
+          required
+          pattern="^[\\d+\\s()-]{8,20}$"
+          placeholder="+51 999 111 222"
+        />
+      </label>
+
+      <label class="field">
+        <span>Servicio *</span>
+        <select name="service" required>
+          <option value="">Selecciona un servicio</option>
+          {services.map((service) => <option value={service}>{service}</option>)}
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Fecha *</span>
+        <input name="date" type="date" required />
+      </label>
+
+      <label class="field">
+        <span>Hora *</span>
+        <input name="time" type="time" required />
+      </label>
+
+      <label class="field md:col-span-2">
+        <span>Notas</span>
+        <textarea
+          name="notes"
+          rows="4"
+          maxlength="240"
+          placeholder="Si deseas, agrega preferencias de estilo."
+        ></textarea>
+      </label>
+
+      <div class="md:col-span-2 mt-2 flex flex-col gap-3 md:flex-row md:items-center">
+        <button
+          id="submit-btn"
+          type="submit"
+          class="inline-flex items-center justify-center rounded-xl bg-osmi-200 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-950 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-70"
+        >
+          Reservar ahora
+        </button>
+        <a
+          id="wa-link"
+          class="hidden inline-flex items-center justify-center rounded-xl border border-osmi-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-100 transition hover:border-osmi-300 hover:text-white"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Enviar aviso por WhatsApp
+        </a>
+      </div>
+      <p id="form-status" class="md:col-span-2 text-sm text-osmi-300"></p>
+    </form>
+  </div>
+</section>
+
+<script is:inline>
+  const form = document.querySelector("#booking-form");
+  const statusText = document.querySelector("#form-status");
+  const submitButton = document.querySelector("#submit-btn");
+  const waLink = document.querySelector("#wa-link");
+  const dateInput = form?.querySelector('input[name="date"]');
+
+  if (dateInput) {
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.setAttribute("min", today);
+  }
+
+  function setStatus(message, isError = false) {
+    if (!statusText) return;
+    statusText.textContent = message;
+    statusText.classList.toggle("text-red-300", isError);
+    statusText.classList.toggle("text-osmi-300", !isError);
+  }
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    submitButton?.setAttribute("disabled", "true");
+    setStatus("Enviando reserva...");
+    waLink?.classList.add("hidden");
+    waLink?.removeAttribute("href");
+
+    try {
+      const response = await fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result?.error || "No se pudo registrar la reserva.");
+      }
+
+      setStatus("Reserva registrada. Si deseas, enviala por WhatsApp al barbero.");
+      form.reset();
+
+      if (result?.waLink && waLink instanceof HTMLAnchorElement) {
+        waLink.href = result.waLink;
+        waLink.classList.remove("hidden");
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Error inesperado.";
+      setStatus(message, true);
+    } finally {
+      submitButton?.removeAttribute("disabled");
+    }
+  });
+</script>

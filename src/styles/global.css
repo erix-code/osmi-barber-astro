@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-osmi-900: #222223;
+  --color-osmi-800: #3d4144;
+  --color-osmi-700: #595c5f;
+  --color-osmi-400: #999da0;
+  --color-osmi-200: #d9dee1;
+  --color-osmi-100: #f2f4f5;
+  --color-osmi-950: #151516;
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(circle at 10% 5%, rgb(217 222 225 / 0.12) 0%, rgb(34 34 35 / 0) 42%),
+    linear-gradient(180deg, #222223 0%, #1a1b1c 100%);
+}
+
+.field {
+  @apply flex flex-col gap-2 text-sm font-medium text-osmi-200;
+}
+
+.field > input,
+.field > select,
+.field > textarea {
+  @apply rounded-xl border border-osmi-700 bg-osmi-900/70 px-4 py-3 text-sm text-osmi-100 placeholder:text-osmi-400 outline-none transition;
+}
+
+.field > input:focus,
+.field > select:focus,
+.field > textarea:focus {
+  @apply border-osmi-200 ring-2 ring-osmi-200/30;
+}

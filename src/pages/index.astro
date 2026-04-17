@@ -1,17 +1,71 @@
 ---
+import BookingForm from "../components/BookingForm.astro";
+import Layout from "../layouts/Layout.astro";
 
+const serviceCards = [
+  { name: "Corte premium", detail: "Acabado detallado para un look impecable.", time: "45 min" },
+  { name: "Barba y perfilado", detail: "Contornos limpios con navaja y toalla caliente.", time: "30 min" },
+  { name: "Corte + barba", detail: "Servicio completo para renovar tu estilo.", time: "60 min" }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="OSMI Barberstudio | Reserva online">
+  <header class="sticky top-0 z-20 border-b border-osmi-700/60 bg-osmi-900/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="#" class="flex items-center gap-3">
+        <img src="/brand/osmi-logo.png" alt="Logo OSMI Barberstudio" class="h-10 w-10 rounded-full object-cover" />
+        <span class="font-display text-2xl tracking-[0.2em] text-osmi-100">OSMI</span>
+      </a>
+      <a
+        href="#reservar"
+        class="rounded-xl border border-osmi-500 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-osmi-100 transition hover:border-osmi-200 hover:text-white"
+      >
+        Reservar
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 md:grid-cols-2 md:items-center">
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-osmi-400">OSMI Barberstudio</p>
+        <h1 class="mt-4 font-display text-5xl leading-tight text-osmi-100 md:text-6xl">
+          Tu estilo, afilado al detalle.
+        </h1>
+        <p class="mt-5 max-w-xl text-osmi-300">
+          Reserva en linea en segundos. Elegancia clasica, precision moderna y atencion personalizada para cada cita.
+        </p>
+        <a
+          href="#reservar"
+          class="mt-8 inline-flex rounded-xl bg-osmi-200 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-950 transition hover:bg-white"
+        >
+          Reservar ahora
+        </a>
+      </div>
+      <div class="flex justify-center md:justify-end">
+        <img
+          src="/brand/osmi-logo.png"
+          alt="Isotipo OSMI Barberstudio"
+          class="w-full max-w-sm rounded-3xl border border-osmi-700 bg-osmi-800/40 p-4 shadow-2xl shadow-black/30"
+        />
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 pb-14">
+      <h2 class="font-display text-3xl text-osmi-100 md:text-4xl">Servicios destacados</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        {
+          serviceCards.map((service) => (
+            <article class="rounded-2xl border border-osmi-700 bg-osmi-800/50 p-5">
+              <h3 class="font-display text-2xl text-osmi-100">{service.name}</h3>
+              <p class="mt-2 text-sm text-osmi-300">{service.detail}</p>
+              <p class="mt-4 text-xs uppercase tracking-[0.2em] text-osmi-400">{service.time}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <BookingForm />
+  </main>
+</Layout>
