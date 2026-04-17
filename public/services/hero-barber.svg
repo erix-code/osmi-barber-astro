@@ -1,0 +1,29 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A1B1D"/>
+      <stop offset="1" stop-color="#2D3236"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1120 280) rotate(126) scale(430 620)">
+      <stop stop-color="#D9DEE1" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#D9DEE1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect x="72" y="72" width="1456" height="856" rx="42" stroke="#595C5F" stroke-width="2"/>
+  <rect x="160" y="180" width="560" height="640" rx="24" fill="#111315" stroke="#3D4144"/>
+  <rect x="820" y="160" width="620" height="360" rx="24" fill="#24282C"/>
+  <rect x="820" y="560" width="620" height="260" rx="24" fill="#2C3135"/>
+  <rect x="196" y="240" width="490" height="56" rx="8" fill="#3D4144"/>
+  <rect x="196" y="326" width="380" height="16" rx="8" fill="#595C5F"/>
+  <rect x="196" y="360" width="420" height="16" rx="8" fill="#595C5F"/>
+  <rect x="196" y="394" width="300" height="16" rx="8" fill="#595C5F"/>
+  <circle cx="1130" cy="340" r="140" fill="#D9DEE1" fill-opacity="0.08"/>
+  <path d="M1090 300h80v80h-80z" fill="#D9DEE1" fill-opacity="0.18"/>
+  <path d="M1030 640h300v24h-300z" fill="#999DA0"/>
+  <path d="M1030 686h220v16h-220z" fill="#999DA0" fill-opacity="0.8"/>
+  <path d="M1030 722h190v16h-190z" fill="#999DA0" fill-opacity="0.8"/>
+  <rect width="1600" height="1000" fill="url(#shine)"/>
+  <text x="198" y="490" fill="#D9DEE1" font-family="Inter, Arial, sans-serif" font-size="28" letter-spacing="4">OSMI BARBERSTUDIO</text>
+  <text x="198" y="534" fill="#999DA0" font-family="Inter, Arial, sans-serif" font-size="20" letter-spacing="2">PLACEHOLDER HERO</text>
+</svg>

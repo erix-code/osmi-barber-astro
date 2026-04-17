@@ -3,13 +3,11 @@
     "id": "builtin_group_id",
     "name": "Currently Open Files",
     "files": [
-      ".gitignore",
-      "src/layouts/Layout.astro",
+      "src/pages/index.astro",
       ".env.example",
-      ".env",
-      "docs/google-apps-script.gs",
-      "src/pages/api/book.ts"
+      ".vscode/virtualTab.json"
     ],
-    "builtIn": true
+    "builtIn": true,
+    "bookmarks": {}
   }
 ]

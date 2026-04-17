@@ -3,10 +3,36 @@ import BookingForm from "../components/BookingForm.astro";
 import Layout from "../layouts/Layout.astro";
 
 const serviceCards = [
-  { name: "Corte premium", detail: "Acabado detallado para un look impecable.", time: "45 min" },
-  { name: "Barba y perfilado", detail: "Contornos limpios con navaja y toalla caliente.", time: "30 min" },
-  { name: "Corte + barba", detail: "Servicio completo para renovar tu estilo.", time: "60 min" }
+  {
+    name: "Corte premium",
+    detail: "Acabado detallado para un look impecable, con degradado de precision.",
+    time: "45 min",
+    priceFrom: "Desde Bs. 60",
+    image: "https://images.pexels.com/photos/1319461/pexels-photo-1319461.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "Servicio de corte premium en barberia"
+  },
+  {
+    name: "Barba y perfilado",
+    detail: "Contornos limpios con navaja, toalla caliente y acabado de alto detalle.",
+    time: "30 min",
+    priceFrom: "Desde Bs. 45",
+    image: "https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "Perfilado de barba profesional"
+  },
+  {
+    name: "Corte + barba",
+    detail: "Servicio completo para renovar tu estilo y salir listo para cualquier ocasion.",
+    time: "60 min",
+    priceFrom: "Desde Bs. 95",
+    image: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    alt: "Paquete de corte y barba"
+  }
 ];
+
+const mapsLink = import.meta.env.PUBLIC_GOOGLE_MAPS_LINK || "https://maps.google.com/?q=OSMI+Barberstudio";
+const mapsEmbedUrl =
+  import.meta.env.PUBLIC_GOOGLE_MAPS_EMBED_URL ||
+  "https://www.google.com/maps?q=-17.3890866,-66.2428822&z=18&output=embed";
 ---
 
 <Layout title="OSMI Barberstudio | Reserva online">
@@ -25,44 +51,102 @@ const serviceCards = [
     </div>
   </header>
 
-  <main>
-    <section class="mx-auto grid max-w-6xl gap-10 px-4 pb-16 pt-14 md:grid-cols-2 md:items-center">
-      <div>
-        <p class="text-xs uppercase tracking-[0.3em] text-osmi-400">OSMI Barberstudio</p>
-        <h1 class="mt-4 font-display text-5xl leading-tight text-osmi-100 md:text-6xl">
-          Tu estilo, afilado al detalle.
+  <main class="pb-8">
+    <section class="section-shell grid gap-10 pt-14 md:grid-cols-2 md:items-center">
+      <div class="space-y-6">
+        <p class="pill">OSMI Barberstudio</p>
+        <h1 class="font-display text-5xl leading-tight text-osmi-100 md:text-7xl">
+          Imagen impecable,
+          <span class="block text-osmi-200">corte de precision.</span>
         </h1>
-        <p class="mt-5 max-w-xl text-osmi-300">
-          Reserva en linea en segundos. Elegancia clasica, precision moderna y atencion personalizada para cada cita.
+        <p class="max-w-xl text-base text-osmi-300 md:text-lg">
+          Vive una experiencia premium con tecnicas modernas y estilo clasico. Reserva en segundos y
+          asegura tu proxima cita sin complicaciones.
         </p>
-        <a
-          href="#reservar"
-          class="mt-8 inline-flex rounded-xl bg-osmi-200 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-950 transition hover:bg-white"
-        >
-          Reservar ahora
-        </a>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="#reservar"
+            class="inline-flex rounded-xl bg-osmi-200 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-950 transition hover:bg-white"
+          >
+            Reservar ahora
+          </a>
+          <a
+            href="#ubicacion"
+            class="inline-flex rounded-xl border border-osmi-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-100 transition hover:border-osmi-300 hover:text-white"
+          >
+            Ver ubicacion
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="pill">+1,200 clientes atendidos</span>
+          <span class="pill">Atencion personalizada</span>
+          <span class="pill">Reserva inmediata</span>
+        </div>
       </div>
-      <div class="flex justify-center md:justify-end">
+      <div class="glass-card overflow-hidden p-0">
         <img
-          src="/brand/osmi-logo.png"
-          alt="Isotipo OSMI Barberstudio"
-          class="w-full max-w-sm rounded-3xl border border-osmi-700 bg-osmi-800/40 p-4 shadow-2xl shadow-black/30"
+          src="https://images.pexels.com/photos/769739/pexels-photo-769739.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Barbero realizando un corte profesional"
+          class="h-[26rem] w-full object-cover"
+          loading="lazy"
         />
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-4 pb-14">
-      <h2 class="font-display text-3xl text-osmi-100 md:text-4xl">Servicios destacados</h2>
+    <section class="section-shell pt-4">
+      <div class="mb-7 flex flex-col gap-2">
+        <p class="pill w-fit">Servicios</p>
+        <h2 class="font-display text-3xl text-osmi-100 md:text-5xl">Servicios destacados</h2>
+        <p class="max-w-2xl text-osmi-300">
+          Diseñados para mantener tu estilo siempre impecable, con tiempos claros y acabado premium.
+        </p>
+      </div>
       <div class="mt-6 grid gap-4 md:grid-cols-3">
         {
           serviceCards.map((service) => (
-            <article class="rounded-2xl border border-osmi-700 bg-osmi-800/50 p-5">
-              <h3 class="font-display text-2xl text-osmi-100">{service.name}</h3>
-              <p class="mt-2 text-sm text-osmi-300">{service.detail}</p>
-              <p class="mt-4 text-xs uppercase tracking-[0.2em] text-osmi-400">{service.time}</p>
+            <article class="media-card">
+              <img src={service.image} alt={service.alt} class="h-52 w-full object-cover" loading="lazy" />
+              <div class="space-y-3 p-5">
+                <h3 class="font-display text-2xl text-osmi-100">{service.name}</h3>
+                <p class="text-sm text-osmi-300">{service.detail}</p>
+                <div class="flex items-center justify-between pt-2 text-xs uppercase tracking-[0.2em] text-osmi-400">
+                  <span>{service.time}</span>
+                  <span>{service.priceFrom}</span>
+                </div>
+              </div>
             </article>
           ))
         }
+      </div>
+    </section>
+
+    <section id="ubicacion" class="section-shell pt-20">
+      <div class="grid gap-6 lg:grid-cols-[0.45fr_1fr]">
+        <div class="glass-card p-6 md:p-8">
+          <p class="pill w-fit">Ubicacion</p>
+          <h2 class="mt-4 font-display text-3xl text-osmi-100 md:text-4xl">Encuentranos en Google Maps</h2>
+          <p class="mt-3 text-sm text-osmi-300 md:text-base">
+            Configura `PUBLIC_GOOGLE_MAPS_LINK` para el boton y `PUBLIC_GOOGLE_MAPS_EMBED_URL` para el iframe.
+          </p>
+          <a
+            href={mapsLink}
+            target="_blank"
+            rel="noreferrer"
+            class="mt-6 inline-flex rounded-xl border border-osmi-500 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-osmi-100 transition hover:border-osmi-300 hover:text-white"
+          >
+            Abrir en Google Maps
+          </a>
+        </div>
+        <div class="glass-card overflow-hidden p-0">
+          <iframe
+            title="Ubicacion OSMI Barberstudio en Google Maps"
+            src={mapsEmbedUrl}
+            class="h-[380px] w-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </section>
 
