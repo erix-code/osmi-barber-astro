@@ -3,8 +3,11 @@
     "id": "builtin_group_id",
     "name": "Currently Open Files",
     "files": [
+      ".env",
       "src/pages/index.astro",
-      "git:/var/www/html/barber-shop/src/components/BookingForm.astro?%7B%22path%22%3A%22%2Fvar%2Fwww%2Fhtml%2Fbarber-shop%2Fsrc%2Fcomponents%2FBookingForm.astro%22%2C%22ref%22%3A%22%22%7D"
+      "src/components/BookingForm.astro",
+      "public/BarberShop/download.png",
+      "public/BarberShop/desktop.jpg"
     ],
     "builtIn": true,
     "bookmarks": {}

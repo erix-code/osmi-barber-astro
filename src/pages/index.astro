@@ -8,7 +8,7 @@ const serviceCards = [
     detail: "Acabado detallado para un look impecable, con degradado de precision.",
     time: "45 min",
     priceFrom: "Desde Bs. 60",
-    image: "https://images.pexels.com/photos/1319461/pexels-photo-1319461.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/BarberShop/High Fade Haircuts_ Bold Styles for Men.jpeg",
     alt: "Servicio de corte premium en barberia"
   },
   {
@@ -16,7 +16,7 @@ const serviceCards = [
     detail: "Contornos limpios con navaja, toalla caliente y acabado de alto detalle.",
     time: "30 min",
     priceFrom: "Desde Bs. 45",
-    image: "https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/BarberShop/_ (1).jpeg",
     alt: "Perfilado de barba profesional"
   },
   {
@@ -24,7 +24,7 @@ const serviceCards = [
     detail: "Servicio completo para renovar tu estilo y salir listo para cualquier ocasion.",
     time: "60 min",
     priceFrom: "Desde Bs. 95",
-    image: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "/BarberShop/bf0ce6542fb5135657e9ff8d550ce528.jpg",
     alt: "Paquete de corte y barba"
   }
 ];
@@ -85,7 +85,7 @@ const mapsEmbedUrl =
       </div>
       <div class="glass-card overflow-hidden p-0">
         <img
-          src="https://images.pexels.com/photos/769739/pexels-photo-769739.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          src="/BarberShop/8a36c1fe02df62cdad2e70dff2f6e43e.jpg"
           alt="Barbero realizando un corte profesional"
           class="h-[26rem] w-full object-cover"
           loading="lazy"
@@ -121,25 +121,31 @@ const mapsEmbedUrl =
     </section>
 
     <section id="ubicacion" class="section-shell pt-28">
-      <div class="grid gap-6 lg:grid-cols-[0.45fr_1fr]">
-        <div class="glass-card p-6 md:p-8">
+      <div class="grid items-stretch gap-6 lg:grid-cols-[0.45fr_1fr]">
+        <div class="glass-card flex h-full flex-col p-6 md:p-8">
+          <img
+            src="/BarberShop/712ef6b087f64f3d7f7ea8d5735b6795.jpg"
+            alt="Interior de la barberia OSMI"
+            class="mb-6 h-44 w-full rounded-2xl object-cover"
+            loading="lazy"
+          />
           <p class="pill w-fit">Ubicacion</p>
-          <h2 class="mt-4 font-display text-3xl text-osmi-100 md:text-4xl">Encuentranos en Google Maps</h2>
+          <h2 class="mt-4 font-display text-3xl text-osmi-100 md:text-4xl">Visitanos en OSMI Barberstudio</h2>
           
           <a
             href={mapsLink}
             target="_blank"
             rel="noreferrer"
-            class="mt-6 inline-flex rounded-xl border border-osmi-500 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-osmi-100 transition hover:border-osmi-300 hover:text-white"
+            class="mt-6 inline-flex rounded-xl border border-osmi-500 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-osmi-100 transition hover:border-osmi-300 hover:text-white lg:mt-auto"
           >
             Abrir en Google Maps
           </a>
         </div>
-        <div class="glass-card overflow-hidden p-0">
+        <div class="glass-card min-h-[380px] overflow-hidden p-0">
           <iframe
             title="Ubicacion OSMI Barberstudio en Google Maps"
             src={mapsEmbedUrl}
-            class="h-[380px] w-full border-0"
+            class="h-full min-h-[380px] w-full border-0"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             allowfullscreen
