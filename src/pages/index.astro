@@ -4,28 +4,52 @@ import Layout from "../layouts/Layout.astro";
 
 const serviceCards = [
   {
-    name: "Corte premium",
-    detail: "Acabado detallado para un look impecable, con degradado de precision.",
-    time: "45 min",
-    priceFrom: "Desde Bs. 60",
+    name: "Cortes clasicos",
+    detail: "Corte tradicional con acabado limpio para un look prolijo de todos los dias.",
+    time: "Precio fijo",
+    priceFrom: "Bs. 25",
     image: "/BarberShop/High Fade Haircuts_ Bold Styles for Men.jpeg",
-    alt: "Servicio de corte premium en barberia"
+    alt: "Servicio de corte clasico en barberia"
   },
   {
-    name: "Barba y perfilado",
-    detail: "Contornos limpios con navaja, toalla caliente y acabado de alto detalle.",
-    time: "30 min",
-    priceFrom: "Desde Bs. 45",
+    name: "Cortes modernos",
+    detail: "Fade, taper o estilo urbano para que salgas con flow actualizado.",
+    time: "Precio fijo",
+    priceFrom: "Bs. 30",
     image: "/BarberShop/_ (1).jpeg",
-    alt: "Perfilado de barba profesional"
+    alt: "Servicio de corte moderno en barberia"
   },
   {
-    name: "Corte + barba",
-    detail: "Servicio completo para renovar tu estilo y salir listo para cualquier ocasion.",
-    time: "60 min",
-    priceFrom: "Desde Bs. 95",
+    name: "Perfilado de barba",
+    detail: "Definicion de contornos y limpieza de barba para una imagen bien cuidada.",
+    time: "Precio fijo",
+    priceFrom: "Bs. 15",
     image: "/BarberShop/bf0ce6542fb5135657e9ff8d550ce528.jpg",
-    alt: "Paquete de corte y barba"
+    alt: "Servicio de perfilado de barba"
+  },
+  {
+    name: "Ceja",
+    detail: "Perfilado rapido y preciso para reforzar tu expresion y estilo.",
+    time: "Precio fijo",
+    priceFrom: "Bs. 10",
+    image: "/BarberShop/712ef6b087f64f3d7f7ea8d5735b6795.jpg",
+    alt: "Servicio de ceja en barberia"
+  },
+  {
+    name: "Servicio Premium (Corte + Barba)",
+    detail: "Combo completo para salir con corte y barba en su mejor version.",
+    time: "Precio fijo",
+    priceFrom: "Bs. 40",
+    image: "/BarberShop/8a36c1fe02df62cdad2e70dff2f6e43e.jpg",
+    alt: "Servicio premium de corte y barba"
+  },
+  {
+    name: "Servicio VIP (Corte + Barba + Ceja)",
+    detail: "Experiencia total para renovar tu look de pies a cabeza en una sola visita.",
+    time: "Precio fijo",
+    priceFrom: "Bs. 50",
+    image: "/BarberShop/bf0ce6542fb5135657e9ff8d550ce528.jpg",
+    alt: "Servicio VIP de corte barba y ceja"
   }
 ];
 
@@ -36,7 +60,7 @@ const mapsEmbedUrl =
 ---
 
 <Layout title="OSMI Barberstudio | Reserva online">
-  <header class="sticky top-0 z-20 border-b border-osmi-700/60 bg-osmi-900/80 backdrop-blur">
+  <header class="sticky top-0 z-20 border-b border-osmi-700/60 bg-osmi-900/80 backdrop-blur reveal reveal-down">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
       <a href="#" class="flex items-center gap-3">
         <img src="/brand/osmi-logo.png" alt="Logo OSMI Barberstudio" class="h-10 w-10 rounded-full object-cover" />
@@ -54,16 +78,16 @@ const mapsEmbedUrl =
   <main class="pb-14">
     <section class="section-shell grid gap-10 pt-20 md:grid-cols-2 md:items-center">
       <div class="space-y-6">
-        <p class="pill">OSMI Barberstudio</p>
-        <h1 class="font-display text-5xl leading-tight text-osmi-100 md:text-7xl">
+        <p class="pill reveal delay-1">OSMI Barberstudio</p>
+        <h1 class="font-display text-5xl leading-tight text-osmi-100 md:text-7xl reveal delay-2">
           Imagen impecable,
           <span class="block text-osmi-200">corte de precision.</span>
         </h1>
-        <p class="max-w-xl text-base text-osmi-300 md:text-lg">
+        <p class="max-w-xl text-base text-osmi-300 md:text-lg reveal delay-3">
           Vive una experiencia premium con tecnicas modernas y estilo clasico. Reserva en segundos y
           asegura tu proxima cita sin complicaciones.
         </p>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3 reveal delay-4">
           <a
             href="#reservar"
             class="inline-flex rounded-xl bg-osmi-200 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-950 transition hover:bg-white"
@@ -77,13 +101,13 @@ const mapsEmbedUrl =
             Ver ubicacion
           </a>
         </div>
-        <div class="flex flex-wrap gap-2 pt-2">
+        <div class="flex flex-wrap gap-2 pt-2 reveal delay-5">
           <span class="pill">+1,200 clientes atendidos</span>
           <span class="pill">Atencion personalizada</span>
           <span class="pill">Reserva inmediata</span>
         </div>
       </div>
-      <div class="glass-card overflow-hidden p-0">
+      <div class="glass-card overflow-hidden p-0 reveal reveal-right delay-3">
         <img
           src="/BarberShop/8a36c1fe02df62cdad2e70dff2f6e43e.jpg"
           alt="Barbero realizando un corte profesional"
@@ -95,16 +119,16 @@ const mapsEmbedUrl =
 
     <section class="section-shell pt-20">
       <div class="mb-7 flex flex-col gap-2">
-        <p class="pill w-fit">Servicios</p>
-        <h2 class="font-display text-3xl text-osmi-100 md:text-5xl">Servicios destacados</h2>
-        <p class="max-w-2xl text-osmi-300">
+        <p class="pill w-fit reveal">Servicios</p>
+        <h2 class="font-display text-3xl text-osmi-100 md:text-5xl reveal delay-1">Servicios destacados</h2>
+        <p class="max-w-2xl text-osmi-300 reveal delay-2">
           Diseñados para mantener tu estilo siempre impecable, con tiempos claros y acabado premium.
         </p>
       </div>
       <div class="mt-6 grid gap-4 md:grid-cols-3">
         {
-          serviceCards.map((service) => (
-            <article class="media-card">
+          serviceCards.map((service, index) => (
+            <article class="media-card reveal" style={`animation-delay: ${index * 110}ms;`}>
               <img src={service.image} alt={service.alt} class="h-52 w-full object-cover" loading="lazy" />
               <div class="space-y-3 p-5">
                 <h3 class="font-display text-2xl text-osmi-100">{service.name}</h3>
@@ -122,7 +146,7 @@ const mapsEmbedUrl =
 
     <section id="ubicacion" class="section-shell pt-28">
       <div class="grid items-stretch gap-6 lg:grid-cols-[0.45fr_1fr]">
-        <div class="glass-card flex h-full flex-col p-6 md:p-8">
+        <div class="glass-card flex h-full flex-col p-6 md:p-8 reveal reveal-left">
           <img
             src="/BarberShop/712ef6b087f64f3d7f7ea8d5735b6795.jpg"
             alt="Interior de la barberia OSMI"
@@ -141,7 +165,7 @@ const mapsEmbedUrl =
             Abrir en Google Maps
           </a>
         </div>
-        <div class="glass-card min-h-[380px] overflow-hidden p-0">
+        <div class="glass-card min-h-[380px] overflow-hidden p-0 reveal reveal-right delay-2">
           <iframe
             title="Ubicacion OSMI Barberstudio en Google Maps"
             src={mapsEmbedUrl}
@@ -157,3 +181,87 @@ const mapsEmbedUrl =
     <BookingForm />
   </main>
 </Layout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px) scale(0.99);
+    animation: reveal-up 0.7s ease-out forwards;
+  }
+
+  .reveal-left {
+    transform: translateX(-24px);
+    animation-name: reveal-left;
+  }
+
+  .reveal-right {
+    transform: translateX(24px);
+    animation-name: reveal-right;
+  }
+
+  .reveal-down {
+    transform: translateY(-16px);
+    animation-name: reveal-down;
+  }
+
+  .delay-1 { animation-delay: 90ms; }
+  .delay-2 { animation-delay: 180ms; }
+  .delay-3 { animation-delay: 270ms; }
+  .delay-4 { animation-delay: 360ms; }
+  .delay-5 { animation-delay: 450ms; }
+
+  @keyframes reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.99);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes reveal-left {
+    from {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes reveal-right {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes reveal-down {
+    from {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-down {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>

@@ -3,11 +3,8 @@
     "id": "builtin_group_id",
     "name": "Currently Open Files",
     "files": [
-      ".env",
       "src/pages/index.astro",
-      "src/components/BookingForm.astro",
-      "public/BarberShop/download.png",
-      "public/BarberShop/desktop.jpg"
+      ".vscode/virtualTab.json"
     ],
     "builtIn": true,
     "bookmarks": {}
