@@ -1,6 +1,7 @@
 ---
 import BookingForm from "../components/BookingForm.astro";
 import Layout from "../layouts/Layout.astro";
+import "../styles/entry-effects.css";
 
 const serviceGallery = [
   {
@@ -52,7 +53,7 @@ const mapsEmbedUrl =
 ---
 
 <Layout title="OSMI Barberstudio | Reserva online">
-  <header class="sticky top-0 z-20 border-b border-osmi-700/60 bg-osmi-900/80 backdrop-blur reveal reveal-down">
+  <header class="reveal reveal-down sticky top-0 z-20 border-b border-osmi-700/60 bg-osmi-900/80 backdrop-blur">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
       <a href="#" class="flex items-center gap-3">
         <img src="/brand/osmi-logo.png" alt="Logo OSMI Barberstudio" class="h-10 w-10 rounded-full object-cover" />
@@ -71,15 +72,15 @@ const mapsEmbedUrl =
     <section class="section-shell grid gap-10 pt-20 md:grid-cols-2 md:items-center">
       <div class="space-y-6">
         <p class="pill reveal delay-1">OSMI Barberstudio</p>
-        <h1 class="font-display text-5xl leading-tight text-osmi-100 md:text-7xl reveal delay-2">
+        <h1 class="reveal delay-2 font-display text-5xl leading-tight text-osmi-100 md:text-7xl">
           Imagen impecable,
           <span class="block text-osmi-200">corte de precision.</span>
         </h1>
-        <p class="max-w-xl text-base text-osmi-300 md:text-lg reveal delay-3">
+        <p class="reveal delay-3 max-w-xl text-base text-osmi-300 md:text-lg">
           Vive una experiencia premium con tecnicas modernas y estilo clasico. Reserva en segundos y
           asegura tu proxima cita sin complicaciones.
         </p>
-        <div class="flex flex-wrap gap-3 reveal delay-4">
+        <div class="reveal delay-4 flex flex-wrap gap-3">
           <a
             href="#reservar"
             class="inline-flex rounded-xl bg-osmi-200 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-osmi-950 transition hover:bg-white"
@@ -93,13 +94,13 @@ const mapsEmbedUrl =
             Ver ubicacion
           </a>
         </div>
-        <div class="flex flex-wrap gap-2 pt-2 reveal delay-5">
+        <div class="reveal delay-5 flex flex-wrap gap-2 pt-2">
           <span class="pill">+1,200 clientes atendidos</span>
           <span class="pill">Atencion personalizada</span>
           <span class="pill">Reserva inmediata</span>
         </div>
       </div>
-      <div class="glass-card overflow-hidden p-0 reveal reveal-right delay-3">
+      <div class="reveal reveal-right delay-3 glass-card overflow-hidden p-0">
         <img
           src="/BarberShop/8a36c1fe02df62cdad2e70dff2f6e43e.jpg"
           alt="Barbero realizando un corte profesional"
@@ -111,9 +112,9 @@ const mapsEmbedUrl =
 
     <section id="servicios" class="section-shell pt-20">
       <div class="text-center">
-        <p class="pill mx-auto w-fit reveal">Mejora tu imagen</p>
-        <h2 class="mt-4 font-display text-4xl text-osmi-100 md:text-5xl reveal delay-1">Servicios</h2>
-        <p class="mx-auto mt-3 max-w-3xl text-osmi-300 reveal delay-2">
+        <p class="reveal pill mx-auto w-fit">Mejora tu imagen</p>
+        <h2 class="reveal delay-1 mt-4 font-display text-4xl text-osmi-100 md:text-5xl">Servicios</h2>
+        <p class="reveal delay-2 mx-auto mt-3 max-w-3xl text-osmi-300">
           Elige tu estilo con precios claros y acabados premium para mantener tu imagen siempre impecable.
         </p>
       </div>
@@ -122,36 +123,51 @@ const mapsEmbedUrl =
         {
           serviceGallery.map((service, index) => (
             <figure
-              class:list={["service-photo reveal", service.featured && "service-photo--featured"]}
-              style={`animation-delay: ${index * 120}ms;`}
+              class:list={[
+                "reveal group h-24 w-24 overflow-hidden rounded-full border border-osmi-400/35 bg-osmi-800/45 shadow-[0_14px_26px_rgba(0,0,0,0.32)] transition duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:border-osmi-200/70 hover:shadow-[0_24px_36px_rgba(0,0,0,0.4)] md:h-32 md:w-32 xl:h-36 xl:w-36",
+                service.featured && "h-32 w-32 md:h-44 md:w-44 xl:h-48 xl:w-48"
+              ]}
+              style={`animation-delay: ${120 + index * 120}ms;`}
             >
-              <img src={service.image} alt={service.alt} loading="lazy" />
+              <img
+                src={service.image}
+                alt={service.alt}
+                loading="lazy"
+                class="h-full w-full rounded-full object-cover transition duration-300 group-hover:scale-110 group-hover:saturate-110 group-hover:contrast-105"
+              />
             </figure>
           ))
         }
       </div>
 
-      <div class="glass-card mx-auto mt-12 w-full  py-6 md:p-10 lg:p-12 reveal delay-2">
+      <div class="reveal delay-2 glass-card mx-auto mt-12 w-full px-6 py-6 md:p-10 lg:p-12">
         <div class="mb-7 flex items-center gap-4">
           <span class="h-px flex-1 bg-osmi-700" aria-hidden="true"></span>
           <h3 class="font-display text-xl uppercase tracking-[0.25em] text-osmi-100 md:text-2xl">Servicios</h3>
           <span class="h-px flex-1 bg-osmi-700" aria-hidden="true"></span>
         </div>
 
-        <ul class="space-y-1">
+        <ul class="space-y-1.5">
           {
             serviceList.map((service, index) => (
-              <li class="price-list-row reveal" style={`animation-delay: ${140 + index * 90}ms;`}>
-                <span class="price-list-name">{service.name}</span>
-                <span class="price-list-dots" aria-hidden="true"></span>
-                <span class="price-list-price">{service.priceFrom}</span>
+              <li
+                class="reveal grid grid-cols-[minmax(0,auto)_1fr_auto] items-center gap-2 py-1.5 text-osmi-100 md:py-2"
+                style={`animation-delay: ${180 + index * 90}ms;`}
+              >
+                <span class="min-w-0 pr-1 font-display text-[0.9rem] leading-tight md:text-xl xl:text-[1.28rem]">
+                  {service.name}
+                </span>
+                <span class="min-w-4 border-b border-dotted border-osmi-300/70" aria-hidden="true"></span>
+                <span class="w-[4.6rem] shrink-0 text-right text-[0.9rem] font-bold tracking-[0.03em] text-osmi-200 tabular-nums md:text-base">
+                  {service.priceFrom}
+                </span>
               </li>
             ))
           }
         </ul>
       </div>
 
-      <div class="mt-9 flex flex-col items-center gap-3 text-center reveal delay-3">
+      <div class="reveal delay-3 mt-9 flex flex-col items-center gap-3 text-center">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-osmi-300">Reserva tu lugar ahora</p>
         <a
           href="#reservar"
@@ -164,7 +180,7 @@ const mapsEmbedUrl =
 
     <section id="ubicacion" class="section-shell pt-28">
       <div class="grid items-stretch gap-6 lg:grid-cols-[0.45fr_1fr]">
-        <div class="glass-card flex h-full flex-col p-6 md:p-8 reveal reveal-left">
+        <div class="reveal reveal-left glass-card flex h-full flex-col p-6 md:p-8">
           <img
             src="/BarberShop/712ef6b087f64f3d7f7ea8d5735b6795.jpg"
             alt="Interior de la barberia OSMI"
@@ -183,7 +199,7 @@ const mapsEmbedUrl =
             Abrir en Google Maps
           </a>
         </div>
-        <div class="glass-card min-h-[380px] overflow-hidden p-0 reveal reveal-right delay-2">
+        <div class="reveal reveal-right delay-2 glass-card min-h-[380px] overflow-hidden p-0">
           <iframe
             title="Ubicacion OSMI Barberstudio en Google Maps"
             src={mapsEmbedUrl}
@@ -200,190 +216,3 @@ const mapsEmbedUrl =
   </main>
 </Layout>
 
-<style>
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px) scale(0.99);
-    animation: reveal-up 0.7s ease-out forwards;
-  }
-
-  .reveal-left {
-    transform: translateX(-24px);
-    animation-name: reveal-left;
-  }
-
-  .reveal-right {
-    transform: translateX(24px);
-    animation-name: reveal-right;
-  }
-
-  .reveal-down {
-    transform: translateY(-16px);
-    animation-name: reveal-down;
-  }
-
-  .delay-1 { animation-delay: 90ms; }
-  .delay-2 { animation-delay: 180ms; }
-  .delay-3 { animation-delay: 270ms; }
-  .delay-4 { animation-delay: 360ms; }
-  .delay-5 { animation-delay: 450ms; }
-
-  .service-photo {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 999px;
-    overflow: hidden;
-    border: 1px solid rgb(153 157 160 / 0.35);
-    box-shadow:
-      0 14px 26px rgb(0 0 0 / 0.32),
-      0 0 0 1px rgb(242 244 245 / 0.06) inset;
-    background: rgb(61 65 68 / 0.45);
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-  }
-
-  .service-photo img {
-    width: 100%;
-    height: 100%;
-    border-radius: 999px;
-    object-fit: cover;
-    transition: transform 320ms ease, filter 320ms ease;
-  }
-
-  .service-photo:hover {
-    transform: translateY(-6px) scale(1.02);
-    border-color: rgb(217 222 225 / 0.7);
-    box-shadow:
-      1px 24px 36px rgb(0 0 0 / 0.4),
-      0 0 0 1px rgb(242 244 245 / 0.18) inset;
-  }
-
-  .service-photo:hover img {
-    transform: scale(1.08);
-    filter: saturate(1.08) contrast(1.04);
-  }
-
-  .service-photo--featured {
-    width: 8rem;
-    height: 8rem;
-  }
-
-  .price-list-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.55rem;
-    padding: 0.55rem 0;
-    color: rgb(242 244 245);
-  }
-
-  .price-list-name {
-    flex-shrink: 0;
-    font-family: var(--font-display);
-    font-size: 1.03rem;
-  }
-
-  .price-list-dots {
-    flex: 1;
-    min-width: 1rem;
-    border-bottom: 1px dotted rgb(184 188 191 / 0.66);
-    transform: translateY(-0.25rem);
-  }
-
-  .price-list-price {
-    flex-shrink: 0;
-    font-size: 0.92rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    color: rgb(217 222 225);
-  }
-
-  @keyframes reveal-up {
-    from {
-      opacity: 0;
-      transform: translateY(18px) scale(0.99);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes reveal-left {
-    from {
-      opacity: 0;
-      transform: translateX(-24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes reveal-right {
-    from {
-      opacity: 0;
-      transform: translateX(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes reveal-down {
-    from {
-      opacity: 0;
-      transform: translateY(-16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal-left,
-    .reveal-right,
-    .reveal-down {
-      animation: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .service-photo {
-      width: 8.25rem;
-      height: 8.25rem;
-    }
-
-    .service-photo--featured {
-      width: 11rem;
-      height: 11rem;
-    }
-
-    .price-list-name {
-      font-size: 1.2rem;
-    }
-
-    .price-list-price {
-      font-size: 1rem;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .service-photo {
-      width: 9.25rem;
-      height: 9.25rem;
-    }
-
-    .service-photo--featured {
-      width: 12rem;
-      height: 12rem;
-    }
-
-    .price-list-name {
-      font-size: 1.28rem;
-    }
-  }
-</style>

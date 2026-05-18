@@ -1,0 +1,99 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(18px) scale(0.99);
+  animation: reveal-up 0.7s ease-out forwards;
+}
+
+.reveal-left {
+  transform: translateX(-24px);
+  animation-name: reveal-left;
+}
+
+.reveal-right {
+  transform: translateX(24px);
+  animation-name: reveal-right;
+}
+
+.reveal-down {
+  transform: translateY(-16px);
+  animation-name: reveal-down;
+}
+
+.delay-1 {
+  animation-delay: 90ms;
+}
+
+.delay-2 {
+  animation-delay: 180ms;
+}
+
+.delay-3 {
+  animation-delay: 270ms;
+}
+
+.delay-4 {
+  animation-delay: 360ms;
+}
+
+.delay-5 {
+  animation-delay: 450ms;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-down {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
